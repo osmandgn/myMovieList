@@ -18,7 +18,7 @@ public class ContactMessageRequest {
     @NotBlank(message = "Please provide a name")
     private String name;
 
-    @Email
+    @Email(message="Provide valid email")
     private String email;
 
     @Size(min = 3, max = 50, message = "Subject must be between {min} and {max} chars long")

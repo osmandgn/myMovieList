@@ -1,5 +1,6 @@
 package org.filmlist.controller;
 
+import org.filmlist.domain.ContactMessage;
 import org.filmlist.dto.ContactMessageDTO;
 import org.filmlist.dto.request.ContactMessageRequest;
 import org.filmlist.dto.response.ResponseMessage;
@@ -38,8 +39,8 @@ public class ContactMessageController {
 
     @GetMapping
     public ResponseEntity<List<ContactMessageDTO>> getAllMessages(){
-        List<ContactMessageDTO> messageDTOS = contactMessageService.getAllMessages();
-        return ResponseEntity.ok(messageDTOS);
+        List<ContactMessageDTO> contactMessageDTOS = contactMessageService.getAllMessages();
+        return ResponseEntity.ok(contactMessageDTOS);
     }
 
     @GetMapping("/pages")
