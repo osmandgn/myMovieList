@@ -1,10 +1,9 @@
-package org.filmlist.controller;
+package org.movielist.controller;
 
-import org.filmlist.domain.ContactMessage;
-import org.filmlist.dto.ContactMessageDTO;
-import org.filmlist.dto.request.ContactMessageRequest;
-import org.filmlist.dto.response.ResponseMessage;
-import org.filmlist.service.ContactMessageService;
+import org.movielist.dto.ContactMessageDTO;
+import org.movielist.dto.request.ContactMessageRequest;
+import org.movielist.dto.response.ResponseMessage;
+import org.movielist.service.ContactMessageService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -58,7 +57,7 @@ public class ContactMessageController {
         return ResponseEntity.ok(pageableContactMessageDTOS);
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ContactMessageDTO> getMessageWithPath(@PathVariable("id") Long id){
         ContactMessageDTO contactMessageDTO = contactMessageService.getByID(id);
         return ResponseEntity.ok(contactMessageDTO);

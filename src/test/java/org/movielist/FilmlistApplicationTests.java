@@ -1,4 +1,4 @@
-package org.filmlist;
+package org.movielist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

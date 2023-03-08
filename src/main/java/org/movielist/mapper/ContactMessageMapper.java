@@ -1,8 +1,8 @@
-package org.filmlist.mapper;
+package org.movielist.mapper;
 
-import org.filmlist.domain.ContactMessage;
-import org.filmlist.dto.ContactMessageDTO;
-import org.filmlist.dto.request.ContactMessageRequest;
+import org.movielist.domain.ContactMessage;
+import org.movielist.dto.ContactMessageDTO;
+import org.movielist.dto.request.ContactMessageRequest;
 import org.mapstruct.*;
 import java.util.List;
 

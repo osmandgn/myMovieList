@@ -1,4 +1,4 @@
-package org.filmlist.domain;
+package org.movielist.domain;
 
 import lombok.*;
 

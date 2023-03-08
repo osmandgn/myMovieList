@@ -1,4 +1,4 @@
-package org.filmlist.exception.message;
+package org.movielist.exception.message;
 
 public class ErrorMessage {
 

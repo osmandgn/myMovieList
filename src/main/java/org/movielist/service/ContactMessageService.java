@@ -1,11 +1,12 @@
-package org.filmlist.service;
+package org.movielist.service;
 
-import org.filmlist.domain.ContactMessage;
-import org.filmlist.dto.ContactMessageDTO;
-import org.filmlist.dto.request.ContactMessageRequest;
-import org.filmlist.exception.message.ErrorMessage;
-import org.filmlist.mapper.ContactMessageMapper;
-import org.filmlist.repository.ContactMessageRepository;
+import org.movielist.domain.ContactMessage;
+import org.movielist.dto.ContactMessageDTO;
+import org.movielist.dto.request.ContactMessageRequest;
+import org.movielist.exception.ResourceNotFoundException;
+import org.movielist.exception.message.ErrorMessage;
+import org.movielist.mapper.ContactMessageMapper;
+import org.movielist.repository.ContactMessageRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -38,13 +39,15 @@ public class ContactMessageService {
         return convertCMPagesToDTOs(pageableContactMessages);
     }
 
-    private Page<ContactMessageDTO> convertCMPagesToDTOs (Page<ContactMessage> pageableContactMessages){
-       return pageableContactMessages.map(contactMessageMapper::contactMessageToContactMessageDTO);
-    }
-
     public ContactMessageDTO getByID(Long id) {
         ContactMessage contactMessage = contactMessageRepository.findById(id).
-                orElseThrow(() -> new RuntimeException(String.format(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION, id)));
+                orElseThrow(() -> new ResourceNotFoundException((String.format(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION, id))));
         return contactMessageMapper.contactMessageToContactMessageDTO(contactMessage);
+    }
+
+
+
+    private Page<ContactMessageDTO> convertCMPagesToDTOs (Page<ContactMessage> pageableContactMessages){
+        return pageableContactMessages.map(contactMessageMapper::contactMessageToContactMessageDTO);
     }
 }

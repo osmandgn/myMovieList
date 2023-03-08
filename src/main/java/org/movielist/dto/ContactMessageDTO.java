@@ -1,4 +1,4 @@
-package org.filmlist.dto;
+package org.movielist.dto;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package org.filmlist.dto.response;
+package org.movielist.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

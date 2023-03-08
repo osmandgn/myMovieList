@@ -1,6 +1,6 @@
-package org.filmlist.repository;
+package org.movielist.repository;
 
-import org.filmlist.domain.ContactMessage;
+import org.movielist.domain.ContactMessage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

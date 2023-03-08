@@ -1,4 +1,4 @@
-package org.filmlist;
+package org.movielist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
