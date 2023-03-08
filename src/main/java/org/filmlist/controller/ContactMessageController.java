@@ -42,7 +42,7 @@ public class ContactMessageController {
         return ResponseEntity.ok(messageDTOS);
     }
 
-    @GetMapping("/page")
+    @GetMapping("/pages")
     public ResponseEntity<Page<ContactMessageDTO>> getAllPageable(
             @RequestParam("page") int page,
             @RequestParam("size") int size,
