@@ -46,7 +46,7 @@ public class ContactMessageController {
     public ResponseEntity<Page<ContactMessageDTO>> getAllPageable(
             @RequestParam("page") int page,
             @RequestParam("size") int size,
-            @RequestParam("prop") String prop,
+            @RequestParam("sort") String prop,
             @RequestParam(value = "direction",
                           required = false,
                           defaultValue = "DESC")
