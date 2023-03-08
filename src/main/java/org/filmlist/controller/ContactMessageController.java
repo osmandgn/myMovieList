@@ -58,4 +58,16 @@ public class ContactMessageController {
         return ResponseEntity.ok(pageableContactMessageDTOS);
     }
 
+    @GetMapping("{/id}")
+    public ResponseEntity<ContactMessageDTO> getMessageWithPath(@PathVariable("id") Long id){
+        ContactMessageDTO contactMessageDTO = contactMessageService.getByID(id);
+        return ResponseEntity.ok(contactMessageDTO);
+    }
+
+    @GetMapping("/request")
+    public ResponseEntity<ContactMessageDTO> getMessageWithRequestParam(@RequestParam("id") Long id){
+        ContactMessageDTO contactMessageDTO = contactMessageService.getByID(id);
+        return ResponseEntity.ok(contactMessageDTO);
+    }
+
 }
