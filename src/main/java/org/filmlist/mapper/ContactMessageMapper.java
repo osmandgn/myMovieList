@@ -8,10 +8,10 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ContactMessageMapper {
 
-    @Mapping(target = "id", ignore = false)
+    @Mapping(target = "id", ignore = true)
     ContactMessage contactMessageRequestToContactMessage(ContactMessageRequest contactMessageRequest);
 
     ContactMessageDTO contactMessageToContactMessageDTO(ContactMessage contactMessage);
