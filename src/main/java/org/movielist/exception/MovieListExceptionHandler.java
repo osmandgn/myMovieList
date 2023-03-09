@@ -2,6 +2,8 @@ package org.movielist.exception;
 
 
 import org.movielist.exception.message.ApiResponseError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
@@ -20,7 +22,10 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class MovieListExceptionHandler extends ResponseEntityExceptionHandler {
 
+    Logger logger = LoggerFactory.getLogger(MovieListExceptionHandler.class);
+
     private ResponseEntity<Object> buildResponseEntity(ApiResponseError error){
+        logger.error(error.getMessage());
         return new ResponseEntity<>(error, error.getStatus());
     }
 

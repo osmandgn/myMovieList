@@ -19,6 +19,16 @@ spring:
     properties:
       '[hibernate.format_sql]': true
 
+logging:
+  file:
+    name: log/movielist.log
+  pattern:
+    file: "%d %-5level [%thread] %logger:%msg%n"
+  level:
+    '[org.springframework.web]' : WARN
+    '[org.hibernate]' : INFO
+    '[org.movielist]' : DEBUG
+
 info:
   application:
     name: 'SafeRent Backend App'
