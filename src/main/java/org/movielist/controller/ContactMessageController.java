@@ -77,4 +77,11 @@ public class ContactMessageController {
         return ResponseEntity.ok(response);
    }
 
+   @PutMapping("/{id}")
+    ResponseEntity<MLResponse> updateContactMessage(@PathVariable Long id, @Valid @RequestBody ContactMessageRequest contactMessageRequest){
+        contactMessageService.updateContactMessage(id, contactMessageRequest);
+        MLResponse response = new MLResponse(ResponseMessage.CONTACTMESSAGE_UPDATE_RESPONSE, true);
+        return ResponseEntity.ok(response);
+   }
+
 }
