@@ -2,6 +2,7 @@ package org.movielist.controller;
 
 import org.movielist.dto.ContactMessageDTO;
 import org.movielist.dto.request.ContactMessageRequest;
+import org.movielist.dto.response.MLResponse;
 import org.movielist.dto.response.ResponseMessage;
 import org.movielist.service.ContactMessageService;
 import org.springframework.data.domain.Page;
@@ -27,11 +28,11 @@ public class ContactMessageController {
     }
 
     @PostMapping("/visitors")
-    public ResponseEntity<ResponseMessage> createMessage(@Valid @RequestBody ContactMessageRequest contactMessageRequest){
+    public ResponseEntity<MLResponse> createMessage(@Valid @RequestBody ContactMessageRequest contactMessageRequest){
 
         contactMessageService.saveMessage(contactMessageRequest);
 
-        ResponseMessage responseMessage = new ResponseMessage("ContactMessage successfully created", true);
+        MLResponse responseMessage = new MLResponse(ResponseMessage.CONTACTMESSAGE_CREATE_RESPONSE, true);
         return new ResponseEntity<>(responseMessage, HttpStatus.CREATED);
 
     }
@@ -68,5 +69,12 @@ public class ContactMessageController {
         ContactMessageDTO contactMessageDTO = contactMessageService.getByID(id);
         return ResponseEntity.ok(contactMessageDTO);
     }
+
+   @DeleteMapping("/{id}")
+    public ResponseEntity<MLResponse> deleteContactMessage(@PathVariable Long id){
+        contactMessageService.deleteContactMessage(id);
+        MLResponse response = new MLResponse(ResponseMessage.CONTACTMESSAGE_DELETE_RESPONSE, true);
+        return ResponseEntity.ok(response);
+   }
 
 }

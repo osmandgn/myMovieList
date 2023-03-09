@@ -39,15 +39,23 @@ public class ContactMessageService {
         return convertCMPagesToDTOs(pageableContactMessages);
     }
 
-    public ContactMessageDTO getByID(Long id) {
-        ContactMessage contactMessage = contactMessageRepository.findById(id).
+    public ContactMessage getContactMessageById(Long id){
+        return contactMessageRepository.findById(id).
                 orElseThrow(() -> new ResourceNotFoundException((String.format(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION, id))));
-        return contactMessageMapper.contactMessageToContactMessageDTO(contactMessage);
+    }
+
+    public ContactMessageDTO getByID(Long id) {
+        return contactMessageMapper.contactMessageToContactMessageDTO(getContactMessageById(id));
     }
 
 
 
     private Page<ContactMessageDTO> convertCMPagesToDTOs (Page<ContactMessage> pageableContactMessages){
         return pageableContactMessages.map(contactMessageMapper::contactMessageToContactMessageDTO);
+    }
+
+
+    public void deleteContactMessage(Long id) {
+        contactMessageRepository.delete(getContactMessageById(id));
     }
 }

@@ -1,20 +1,12 @@
 package org.movielist.dto.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class ResponseMessage {
 
-    private String message;
+    public final static String CONTACTMESSAGE_CREATE_RESPONSE = "ContactMessage successfully created";
 
-    private boolean status;
+    public final static String CONTACTMESSAGE_DELETE_RESPONSE = "ContactMessage successfully deleted";
 
+    public final static String CONTACTMESSAGE_UPDATE_RESPONSE = "ContactMessage successfully updated";
 
 
 }
