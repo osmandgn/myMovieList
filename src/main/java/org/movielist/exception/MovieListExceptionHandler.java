@@ -82,7 +82,24 @@ public class MovieListExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
+    @ExceptionHandler(RuntimeException.class)
+    protected ResponseEntity<Object> handleRuntimeException(RuntimeException ex, WebRequest request) {
+        ApiResponseError error = new ApiResponseError(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getMessage(),
+                request.getDescription(false));
+        return buildResponseEntity(error);
 
+    }
+
+    @ExceptionHandler(Exception.class)
+    protected ResponseEntity<Object> handleGeneralException(Exception ex, WebRequest request){
+        ApiResponseError error = new ApiResponseError(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getMessage(),
+                request.getDescription(false));
+        return buildResponseEntity(error);
+    }
 
 
 
