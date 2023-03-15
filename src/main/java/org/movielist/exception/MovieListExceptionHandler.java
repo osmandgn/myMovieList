@@ -63,7 +63,43 @@ public class MovieListExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(error);
     }
 
+    @Override
+    protected ResponseEntity<Object> handleConversionNotSupported(ConversionNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 
+        ApiResponseError error = new ApiResponseError(HttpStatus.INTERNAL_SERVER_ERROR
+                ,
+                ex.getMessage(),
+                request.getDescription(false))  ;
+        return buildResponseEntity(error);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        ApiResponseError error = new ApiResponseError(HttpStatus.BAD_REQUEST,
+                ex.getMessage(),
+                request.getDescription(false))  ;
+        return buildResponseEntity(error);
+    }
+
+
+    @ExceptionHandler(RuntimeException.class)
+    protected ResponseEntity<Object> handleRuntimeException(RuntimeException ex, WebRequest request) {
+        ApiResponseError error = new ApiResponseError(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getMessage(),
+                request.getDescription(false));
+        return buildResponseEntity(error);
+
+    }
+
+    @ExceptionHandler(Exception.class)
+    protected ResponseEntity<Object> handleGeneralException(Exception ex, WebRequest request){
+        ApiResponseError error = new ApiResponseError(
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ex.getMessage(),
+                request.getDescription(false));
+        return buildResponseEntity(error);
+    }
 
 
 
