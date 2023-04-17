@@ -1,7 +1,7 @@
 package org.movielist.security.jwt;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
+import org.movielist.exception.message.ErrorMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,4 +29,25 @@ public class JwtUtils {
                 .signWith(SignatureAlgorithm.ES512, jwtSecret)
                 .compact();
     }
+
+
+
+    public String getEmailFromToken(String token){
+       return Jwts.parser().setSigningKey(jwtSecret)
+                .parseClaimsJwt(token)
+                .getBody()
+                .getSubject();
+    }
+
+    public boolean validateJwtToken (String token){
+        try {
+            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJwt(token);
+            return true;
+        } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException |
+                 IllegalArgumentException e) {
+            logger.error(String.format(ErrorMessage.JWTTOKEN_ERROR_MESSAGE, e.getMessage()));
+        }
+        return false;
+    }
+
 }
