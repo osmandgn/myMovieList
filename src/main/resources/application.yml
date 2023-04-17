@@ -29,6 +29,13 @@ logging:
     '[org.hibernate]' : INFO
     '[org.movielist]' : DEBUG
 
+
+filmlist:
+  app:
+    jwtSecret: filmList!@63
+    jwtExpirationMs: 86400000
+
+
 info:
   application:
     name: 'FilmList Backend App'
