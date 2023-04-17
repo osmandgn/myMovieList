@@ -2,6 +2,7 @@ package org.movielist.security.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -26,4 +27,16 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             IOException {
 
     }
+
+    private String parseJwt(HttpServletRequest request){
+       String header = request.getHeader("Authorization");
+       if(StringUtils.hasText(header) && header.startsWith("Bearer ")){
+           return header.substring(7);
+       }
+       return null;
+    }
+
+
+
+
 }
