@@ -31,6 +31,6 @@ logging:
 
 info:
   application:
-    name: 'SafeRent Backend App'
-    description: 'This is SafeRent CarRental Backend Project'
+    name: 'FilmList Backend App'
+    description: 'This is FilmList Backend Project'
     version: '@project.version@'
