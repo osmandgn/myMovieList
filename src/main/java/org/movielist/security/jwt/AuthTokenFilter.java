@@ -1,6 +1,9 @@
 package org.movielist.security.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -25,6 +28,25 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException,
             IOException {
+
+        String jwtToken = parseJwt(request);
+
+        try {
+            if(jwtToken != null && jwtUtils.validateJwtToken(jwtToken)){
+               String email = jwtUtils.getEmailFromToken(jwtToken);
+              UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+
+                UsernamePasswordAuthenticationToken authenticationToken =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails,
+                                null,
+                                userDetails.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            }
+        } catch (Exception e) {
+            logger.error("User not Found{} : ", e.getMessage());
+        }
+        filterChain.doFilter(request, response);
 
     }
 
