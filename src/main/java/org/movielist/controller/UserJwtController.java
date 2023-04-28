@@ -1,6 +1,7 @@
 package org.movielist.controller;
 
 import org.movielist.dto.request.RegisterRequest;
+import org.movielist.dto.response.LoginResponse;
 import org.movielist.dto.response.MLResponse;
 import org.movielist.dto.response.ResponseMessage;
 import org.movielist.security.jwt.JwtUtils;
@@ -37,6 +38,9 @@ public class UserJwtController {
         return new ResponseEntity<>(mlResponse, HttpStatus.CREATED);
 
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> authenticate ()
 
 
 }
