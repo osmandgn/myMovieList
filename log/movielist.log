@@ -28,3 +28,105 @@
 2023-04-28 21:30:50,961 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-04-28 21:30:50,984 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
 2023-04-28 21:30:50,989 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+2023-04-28 22:05:24,176 INFO  [restartedMain] org.movielist.FilmlistApplication:Starting FilmlistApplication using Java 18.0.2.1 on GSs-MacBook-Air.local with PID 23834 (/Users/gs/IdeaProjects/filmlist/target/classes started by gs in /Users/gs/IdeaProjects/filmlist)
+2023-04-28 22:05:24,177 DEBUG [restartedMain] org.movielist.FilmlistApplication:Running with Spring Boot v2.7.9, Spring v5.3.25
+2023-04-28 22:05:24,177 INFO  [restartedMain] org.movielist.FilmlistApplication:No active profile set, falling back to 1 default profile: "default"
+2023-04-28 22:05:24,209 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-28 22:05:24,209 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-28 22:05:24,934 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-28 22:05:24,970 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
+2023-04-28 22:05:25,429 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8080 (http)
+2023-04-28 22:05:25,436 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2023-04-28 22:05:25,436 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-04-28 22:05:25,480 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2023-04-28 22:05:25,480 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1270 ms
+2023-04-28 22:05:25,659 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-28 22:05:25,696 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-04-28 22:05:25,799 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-28 22:05:25,852 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2023-04-28 22:05:25,924 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2023-04-28 22:05:25,936 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-28 22:05:26,404 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-28 22:05:26,409 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28 22:05:26,611 ERROR [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatStarter:Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'securityConfig' defined in file [/Users/gs/IdeaProjects/filmlist/target/classes/org/movielist/security/SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDetailsServiceImpl' defined in file [/Users/gs/IdeaProjects/filmlist/target/classes/org/movielist/security/service/UserDetailsServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService' defined in file [/Users/gs/IdeaProjects/filmlist/target/classes/org/movielist/service/UserService.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'securityConfig': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2023-04-28 22:05:26,626 INFO  [restartedMain] org.apache.catalina.core.StandardService:Stopping service [Tomcat]
+2023-04-28 22:05:26,627 WARN  [restartedMain] org.apache.catalina.loader.WebappClassLoaderBase:The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@18.0.2.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2.1/java.lang.Thread.run(Thread.java:833)
+2023-04-28 22:05:26,628 WARN  [restartedMain] org.apache.catalina.loader.WebappClassLoaderBase:The web application [ROOT] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@18.0.2.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@18.0.2.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@18.0.2.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@18.0.2.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@18.0.2.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@18.0.2.1/java.lang.Thread.run(Thread.java:833)
+2023-04-28 22:05:26,629 WARN  [restartedMain] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-04-28 22:05:26,629 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28 22:05:26,631 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2023-04-28 22:05:26,634 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+2023-04-28 22:05:26,646 INFO  [restartedMain] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener:
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-28 22:05:26,658 ERROR [restartedMain] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  securityConfig defined in file [/Users/gs/IdeaProjects/filmlist/target/classes/org/movielist/security/SecurityConfig.class]
+↑     ↓
+|  userDetailsServiceImpl defined in file [/Users/gs/IdeaProjects/filmlist/target/classes/org/movielist/security/service/UserDetailsServiceImpl.class]
+↑     ↓
+|  userService defined in file [/Users/gs/IdeaProjects/filmlist/target/classes/org/movielist/service/UserService.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2023-04-28 22:13:26,742 INFO  [restartedMain] org.movielist.FilmlistApplication:Starting FilmlistApplication using Java 18.0.2.1 on GSs-MacBook-Air.local with PID 24367 (/Users/gs/IdeaProjects/filmlist/target/classes started by gs in /Users/gs/IdeaProjects/filmlist)
+2023-04-28 22:13:26,742 DEBUG [restartedMain] org.movielist.FilmlistApplication:Running with Spring Boot v2.7.9, Spring v5.3.25
+2023-04-28 22:13:26,743 INFO  [restartedMain] org.movielist.FilmlistApplication:No active profile set, falling back to 1 default profile: "default"
+2023-04-28 22:13:26,778 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-28 22:13:26,778 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-28 22:13:27,376 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-28 22:13:27,415 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 34 ms. Found 3 JPA repository interfaces.
+2023-04-28 22:13:27,904 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8080 (http)
+2023-04-28 22:13:27,911 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2023-04-28 22:13:27,911 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-04-28 22:13:27,955 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2023-04-28 22:13:27,955 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1176 ms
+2023-04-28 22:13:28,126 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-28 22:13:28,166 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-04-28 22:13:28,266 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-28 22:13:28,318 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2023-04-28 22:13:28,384 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2023-04-28 22:13:28,396 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-28 22:13:28,856 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-28 22:13:28,861 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28 22:13:29,104 DEBUG [restartedMain] org.movielist.security.jwt.AuthTokenFilter:Filter 'authTokenFilter' configured for use
+2023-04-28 22:13:29,215 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@261cd63e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46d7b405, org.springframework.security.web.context.SecurityContextPersistenceFilter@62e12179, org.springframework.security.web.header.HeaderWriterFilter@7cc35490, org.springframework.security.web.authentication.logout.LogoutFilter@3c031dd4, org.movielist.security.jwt.AuthTokenFilter@32f46d2e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@739bf8f9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d590079, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c3c075b, org.springframework.security.web.session.SessionManagementFilter@398e1e1c, org.springframework.security.web.access.ExceptionTranslationFilter@2b48ccb9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5706e5b5]
+2023-04-28 22:13:29,246 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-28 22:13:29,493 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
+2023-04-28 22:13:29,498 INFO  [restartedMain] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-28 22:13:29,536 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-28 22:13:29,550 INFO  [restartedMain] org.movielist.FilmlistApplication:Started FilmlistApplication in 3.454 seconds (JVM running for 3.876)
+2023-04-28 22:19:58,388 WARN  [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s858ms), soft-evicting connections from pool.
+2023-04-28 22:21:10,533 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28 22:21:10,543 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2023-04-28 22:21:10,546 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.

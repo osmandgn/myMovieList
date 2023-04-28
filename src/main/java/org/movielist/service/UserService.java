@@ -8,6 +8,7 @@ import org.movielist.exception.ConflictException;
 import org.movielist.exception.ResourceNotFoundException;
 import org.movielist.exception.message.ErrorMessage;
 import org.movielist.repository.UserRepository;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class UserService {
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, RoleService roleService, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, RoleService roleService, @Lazy PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
@@ -36,7 +37,7 @@ public class UserService {
 
     public void saveUser(RegisterRequest registerRequest) {
         if (userRepository.existsByEmail(registerRequest.getEmail())){
-            throw new ConflictException(String.format(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE, registerRequest.getEmail()))
+            throw new ConflictException(String.format(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE, registerRequest.getEmail()));
         }
         Role role = roleService.findByType(RoleType.ROLE_CUSTOMER);
         Set<Role> roles = new HashSet<>();
@@ -53,6 +54,8 @@ public class UserService {
         user.setAddress(registerRequest.getAddress());
         user.setPhoneNumber(registerRequest.getPhoneNumber());
         user.setZipCode(registerRequest.getZipCode());
+
+        userRepository.save(user);
 
     }
 }
