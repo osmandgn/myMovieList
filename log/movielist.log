@@ -25,3 +25,6 @@
 2023-04-28 20:10:02,843 INFO  [restartedMain] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 1 endpoint(s) beneath base path '/actuator'
 2023-04-28 20:10:02,877 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8080 (http) with context path ''
 2023-04-28 20:10:02,889 INFO  [restartedMain] org.movielist.FilmlistApplication:Started FilmlistApplication in 4.014 seconds (JVM running for 4.361)
+2023-04-28 21:30:50,961 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-28 21:30:50,984 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2023-04-28 21:30:50,989 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
