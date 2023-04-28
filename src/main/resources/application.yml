@@ -8,8 +8,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/filmlist_db
-    username: new_user
-    password: new_user
+    username: admin
+    password: password
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
