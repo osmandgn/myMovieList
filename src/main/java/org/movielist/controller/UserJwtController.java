@@ -1,5 +1,6 @@
 package org.movielist.controller;
 
+import org.movielist.dto.request.LoginRequest;
 import org.movielist.dto.request.RegisterRequest;
 import org.movielist.dto.response.LoginResponse;
 import org.movielist.dto.response.MLResponse;
@@ -9,6 +10,9 @@ import org.movielist.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +25,7 @@ public class UserJwtController {
     private final UserService userService;
     private final JwtUtils jwtUtils;
     private final AuthenticationManager authenticationManager;
+
 
 
     public UserJwtController(UserService userService, JwtUtils jwtUtils, AuthenticationManager authenticationManager) {
@@ -40,7 +45,24 @@ public class UserJwtController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> authenticate ()
+    public ResponseEntity<LoginResponse> authenticate(@Valid
+                                                      @RequestBody LoginRequest loginRequest) {
 
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
+                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
+                        loginRequest.getPassword());
 
+        Authentication authentication =
+                authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+
+        // !!! Kullanıcı bu aşamada valide edildi ve Token üretimine geçiliyor
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String jwtToken = jwtUtils.generateJwtToken(userDetails);
+        // !!! JWT token client tarafına gönderiliyor
+        LoginResponse loginResponse = new LoginResponse(jwtToken);
+
+        return new ResponseEntity<>(loginResponse,HttpStatus.OK);
+
+    }
 }
+
