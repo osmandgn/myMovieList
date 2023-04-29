@@ -259,3 +259,79 @@
 2023-04-29 01:03:49,175 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-04-29 01:03:49,183 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
 2023-04-29 01:03:49,187 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+2023-04-29 01:14:55,470 INFO  [restartedMain] org.movielist.FilmlistApplication:Starting FilmlistApplication using Java 18.0.2.1 on GSs-MacBook-Air.local with PID 35784 (/Users/gs/IdeaProjects/filmlist/target/classes started by gs in /Users/gs/IdeaProjects/filmlist)
+2023-04-29 01:14:55,471 DEBUG [restartedMain] org.movielist.FilmlistApplication:Running with Spring Boot v2.7.9, Spring v5.3.25
+2023-04-29 01:14:55,471 INFO  [restartedMain] org.movielist.FilmlistApplication:No active profile set, falling back to 1 default profile: "default"
+2023-04-29 01:14:55,507 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-29 01:14:55,507 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-29 01:14:56,181 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-29 01:14:56,223 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2023-04-29 01:14:56,684 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8080 (http)
+2023-04-29 01:14:56,691 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2023-04-29 01:14:56,691 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-04-29 01:14:56,730 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2023-04-29 01:14:56,730 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1223 ms
+2023-04-29 01:14:56,907 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-29 01:14:56,941 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-04-29 01:14:57,040 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-29 01:14:57,091 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2023-04-29 01:14:57,160 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2023-04-29 01:14:57,172 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-29 01:14:57,635 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-29 01:14:57,641 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-29 01:14:57,876 DEBUG [restartedMain] org.movielist.security.jwt.AuthTokenFilter:Filter 'authTokenFilter' configured for use
+2023-04-29 01:14:57,988 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4a38c105, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f7736da, org.springframework.security.web.context.SecurityContextPersistenceFilter@63a4c692, org.springframework.security.web.header.HeaderWriterFilter@286b7cfa, org.springframework.security.web.authentication.logout.LogoutFilter@48376ee8, org.movielist.security.jwt.AuthTokenFilter@24b95e22, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77d6dba7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a205c03, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ecc0fc8, org.springframework.security.web.session.SessionManagementFilter@214f87d7, org.springframework.security.web.access.ExceptionTranslationFilter@5dcf4d23, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5bebd42c]
+2023-04-29 01:14:58,013 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-29 01:14:58,263 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
+2023-04-29 01:14:58,269 INFO  [restartedMain] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-29 01:14:58,300 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-29 01:14:58,314 INFO  [restartedMain] org.movielist.FilmlistApplication:Started FilmlistApplication in 3.422 seconds (JVM running for 3.833)
+2023-04-29 01:15:05,727 INFO  [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-29 01:15:06,205 ERROR [http-nio-8080-exec-2] org.movielist.exception.MovieListExceptionHandler:User account is locked
+2023-04-29 01:15:06,229 WARN  [http-nio-8080-exec-2] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.springframework.security.authentication.LockedException: User account is locked]
+2023-04-29 01:16:06,221 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-29 01:16:06,227 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2023-04-29 01:16:06,229 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+2023-04-29 10:34:00,361 INFO  [restartedMain] org.movielist.FilmlistApplication:Starting FilmlistApplication using Java 18.0.2.1 on GSs-MacBook-Air.local with PID 36950 (/Users/gs/IdeaProjects/filmlist/target/classes started by gs in /Users/gs/IdeaProjects/filmlist)
+2023-04-29 10:34:00,362 DEBUG [restartedMain] org.movielist.FilmlistApplication:Running with Spring Boot v2.7.9, Spring v5.3.25
+2023-04-29 10:34:00,363 INFO  [restartedMain] org.movielist.FilmlistApplication:No active profile set, falling back to 1 default profile: "default"
+2023-04-29 10:34:00,413 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-29 10:34:00,413 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-29 10:34:01,235 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-29 10:34:01,287 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2023-04-29 10:34:01,973 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8080 (http)
+2023-04-29 10:34:01,984 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2023-04-29 10:34:01,984 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-04-29 10:34:02,045 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2023-04-29 10:34:02,045 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1631 ms
+2023-04-29 10:34:02,293 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-29 10:34:02,339 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-04-29 10:34:02,476 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-29 10:34:02,546 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2023-04-29 10:34:02,652 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2023-04-29 10:34:02,667 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-29 10:34:03,276 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-29 10:34:03,283 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-29 10:34:03,604 DEBUG [restartedMain] org.movielist.security.jwt.AuthTokenFilter:Filter 'authTokenFilter' configured for use
+2023-04-29 10:34:03,760 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a9919e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@71c44951, org.springframework.security.web.context.SecurityContextPersistenceFilter@492789f3, org.springframework.security.web.header.HeaderWriterFilter@63a4c692, org.springframework.security.web.authentication.logout.LogoutFilter@2bd9229, org.movielist.security.jwt.AuthTokenFilter@1d173508, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@603f9441, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@389df5d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@160f643f, org.springframework.security.web.session.SessionManagementFilter@3c972409, org.springframework.security.web.access.ExceptionTranslationFilter@3eaef737, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@645df16f]
+2023-04-29 10:34:03,803 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-29 10:34:04,240 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
+2023-04-29 10:34:04,250 INFO  [restartedMain] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-04-29 10:34:04,318 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-29 10:34:04,339 INFO  [restartedMain] org.movielist.FilmlistApplication:Started FilmlistApplication in 4.471 seconds (JVM running for 4.788)
+2023-04-29 10:34:14,467 INFO  [http-nio-8080-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-29 10:34:14,495 WARN  [http-nio-8080-exec-1] org.springframework.web.servlet.PageNotFound:Request method 'GET' not supported
+2023-04-29 10:34:14,503 WARN  [http-nio-8080-exec-1] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2023-04-29 10:34:47,597 ERROR [http-nio-8080-exec-3] org.movielist.exception.MovieListExceptionHandler:Email: zz@xxx.com already exist
+2023-04-29 10:34:47,614 WARN  [http-nio-8080-exec-3] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.movielist.exception.ConflictException: Email: zz@xxx.com already exist]
+2023-04-29 10:34:52,333 ERROR [http-nio-8080-exec-4] org.movielist.exception.MovieListExceptionHandler:User account is locked
+2023-04-29 10:34:52,334 WARN  [http-nio-8080-exec-4] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.springframework.security.authentication.LockedException: User account is locked]
+2023-04-29 10:34:58,014 ERROR [http-nio-8080-exec-6] org.movielist.exception.MovieListExceptionHandler:User account is locked
+2023-04-29 10:34:58,017 WARN  [http-nio-8080-exec-6] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.springframework.security.authentication.LockedException: User account is locked]
+2023-04-29 10:42:51,742 ERROR [http-nio-8080-exec-7] org.movielist.exception.MovieListExceptionHandler:User account is locked
+2023-04-29 10:42:51,745 WARN  [http-nio-8080-exec-7] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.springframework.security.authentication.LockedException: User account is locked]
+2023-04-29 10:42:55,820 ERROR [http-nio-8080-exec-10] org.movielist.exception.MovieListExceptionHandler:User account is locked
+2023-04-29 10:42:55,822 WARN  [http-nio-8080-exec-10] org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:Resolved [org.springframework.security.authentication.LockedException: User account is locked]
+2023-04-29 10:42:59,430 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-29 10:42:59,437 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2023-04-29 10:42:59,441 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
