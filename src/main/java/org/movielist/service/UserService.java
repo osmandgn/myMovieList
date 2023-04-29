@@ -3,16 +3,20 @@ package org.movielist.service;
 import org.movielist.domain.Role;
 import org.movielist.domain.User;
 import org.movielist.domain.enums.RoleType;
+import org.movielist.dto.UserDTO;
 import org.movielist.dto.request.RegisterRequest;
 import org.movielist.exception.ConflictException;
 import org.movielist.exception.ResourceNotFoundException;
 import org.movielist.exception.message.ErrorMessage;
+import org.movielist.mapper.UserMapper;
 import org.movielist.repository.UserRepository;
+import org.movielist.security.SecurityUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -23,10 +27,13 @@ public class UserService {
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, RoleService roleService, @Lazy PasswordEncoder passwordEncoder) {
+    private final UserMapper userMapper;
+
+    public UserService(UserRepository userRepository, RoleService roleService, @Lazy PasswordEncoder passwordEncoder, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
+        this.userMapper = userMapper;
     }
 
     public User getUserByEmail(String email){
@@ -58,4 +65,21 @@ public class UserService {
         userRepository.save(user);
 
     }
+
+    public List<UserDTO> getAllUsers() {
+        List<User> userList = userRepository.findAll();
+        return userMapper.map(userList);
+
+    }
+
+    public UserDTO getPrincipal() {
+        return userMapper.userToUserDTO(getCurrentUser());
+    }
+
+    public User getCurrentUser(){
+        String email = SecurityUtils.getCurrentUserLogin().
+                orElseThrow(() -> new ResourceNotFoundException(ErrorMessage.PRINCIPAL_FOUND_MESSAGE));
+        return getUserByEmail(email);
+    }
+
 }

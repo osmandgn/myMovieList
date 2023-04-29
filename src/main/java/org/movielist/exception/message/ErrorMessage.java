@@ -8,6 +8,9 @@ public class ErrorMessage {
     public final static String JWTTOKEN_ERROR_MESSAGE = "JWT Token Validation Error: %s";
 
     public final static String EMAIL_ALREADY_EXIST_MESSAGE = "Email: %s already exist";
+    public final static String PRINCIPAL_FOUND_MESSAGE = "User not found";
+
+
 
 
 }
