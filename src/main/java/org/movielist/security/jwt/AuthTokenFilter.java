@@ -1,21 +1,17 @@
 package org.movielist.security.jwt;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.util.AntPathMatcher;
-import org.springframework.util.StringUtils;
-import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.authentication.*;
+import org.springframework.security.core.context.*;
+import org.springframework.security.core.userdetails.*;
+import org.springframework.util.*;
+import org.springframework.web.filter.*;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
 
@@ -38,8 +34,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
         try {
             if(jwtToken != null && jwtUtils.validateJwtToken(jwtToken)){
-               String email = jwtUtils.getEmailFromToken(jwtToken);
-              UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+                String email = jwtUtils.getEmailFromToken(jwtToken);
+                UserDetails userDetails = userDetailsService.loadUserByUsername(email);
 
                 UsernamePasswordAuthenticationToken authenticationToken =
                         new UsernamePasswordAuthenticationToken(
@@ -55,12 +51,15 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
     }
 
+
     private String parseJwt(HttpServletRequest request){
-       String header = request.getHeader("Authorization");
-       if(StringUtils.hasText(header) && header.startsWith("Bearer ")){
-           return header.substring(7);
-       }
-       return null;
+        String header = request.getHeader("Authorization");
+
+        if(StringUtils.hasText(header) && header.startsWith("Bearer ")) {
+            return header.substring(7);
+        }
+
+        return null;
     }
 
     @Override
