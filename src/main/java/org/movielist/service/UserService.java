@@ -6,6 +6,7 @@ import org.movielist.domain.enums.RoleType;
 import org.movielist.dto.UserDTO;
 import org.movielist.dto.request.RegisterRequest;
 import org.movielist.dto.request.UpdatePasswordRequest;
+import org.movielist.exception.BadRequestException;
 import org.movielist.exception.ConflictException;
 import org.movielist.exception.ResourceNotFoundException;
 import org.movielist.exception.message.ErrorMessage;
@@ -104,10 +105,22 @@ public class UserService {
     }
 
     public void updatePassword(UpdatePasswordRequest updatePasswordRequest) {
+
         User user = getCurrentUser();
+
+
         if(user.getBuiltIn()){
-            throw new Bad
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
         }
+
+        if(!passwordEncoder.matches(updatePasswordRequest.getOldPassword(), user.getPassword())) {
+            throw new BadRequestException(ErrorMessage.PASSWORD_NOT_MATCHED_MESSAGE);
+        }
+
+        String hashedPassword =passwordEncoder.encode(updatePasswordRequest.getNewPassword());
+        user.setPassword(hashedPassword);
+
+        userRepository.save(user);
     }
 }
 
