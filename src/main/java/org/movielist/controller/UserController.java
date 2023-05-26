@@ -2,6 +2,7 @@ package org.movielist.controller;
 
 import org.movielist.dto.UserDTO;
 import org.movielist.dto.request.UpdatePasswordRequest;
+import org.movielist.dto.request.UserUpdateRequest;
 import org.movielist.dto.response.MlResponse;
 import org.movielist.dto.response.ResponseMessage;
 import org.movielist.service.UserService;
@@ -72,6 +73,22 @@ public class UserController {
         response.setStatus(true);
         return ResponseEntity.ok(response);
     }
+
+    @PutMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
+    public ResponseEntity<MlResponse> updateUser(
+            @Valid @RequestBody UserUpdateRequest userUpdateRequest) {
+        userService.updateUser(userUpdateRequest);
+
+        MlResponse response = new MlResponse();
+        response.setMessage(ResponseMessage.USER_UPDATE_RESPONSE_MESSAGE);
+        response.setStatus(true);
+
+        return ResponseEntity.ok(response);
+
+    }
+
+
 
 
 }

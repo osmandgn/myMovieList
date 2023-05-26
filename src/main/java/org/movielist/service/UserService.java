@@ -6,6 +6,7 @@ import org.movielist.domain.enums.RoleType;
 import org.movielist.dto.UserDTO;
 import org.movielist.dto.request.RegisterRequest;
 import org.movielist.dto.request.UpdatePasswordRequest;
+import org.movielist.dto.request.UserUpdateRequest;
 import org.movielist.exception.BadRequestException;
 import org.movielist.exception.ConflictException;
 import org.movielist.exception.ResourceNotFoundException;
@@ -18,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
@@ -121,6 +123,33 @@ public class UserService {
         user.setPassword(hashedPassword);
 
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void updateUser(UserUpdateRequest userUpdateRequest) {
+
+        User user = getCurrentUser();
+        // !!! builtIn ???
+        if(user.getBuiltIn()){
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
+        }
+
+        // !!! email kontrol
+        boolean emailExist = userRepository.existsByEmail(userUpdateRequest.getEmail());
+
+        if(emailExist && !userUpdateRequest.getEmail().equals(user.getEmail())) {
+            throw new ConflictException(
+                    String.format(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE,userUpdateRequest.getEmail()));
+        }
+
+        userRepository.update(user.getId(),
+                userUpdateRequest.getFirstName(),
+                userUpdateRequest.getLastName(),
+                userUpdateRequest.getPhoneNumber(),
+                userUpdateRequest.getEmail(),
+                userUpdateRequest.getAddress(),
+                userUpdateRequest.getZipCode());
+
     }
 }
 
