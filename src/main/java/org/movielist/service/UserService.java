@@ -5,6 +5,7 @@ import org.movielist.domain.User;
 import org.movielist.domain.enums.RoleType;
 import org.movielist.dto.UserDTO;
 import org.movielist.dto.request.RegisterRequest;
+import org.movielist.dto.request.UpdatePasswordRequest;
 import org.movielist.exception.ConflictException;
 import org.movielist.exception.ResourceNotFoundException;
 import org.movielist.exception.message.ErrorMessage;
@@ -100,6 +101,13 @@ public class UserService {
                 new ResourceNotFoundException(
                         String.format(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION, id)));
         return userMapper.userToUserDTO(user);
+    }
+
+    public void updatePassword(UpdatePasswordRequest updatePasswordRequest) {
+        User user = getCurrentUser();
+        if(user.getBuiltIn()){
+            throw new Bad
+        }
     }
 }
 

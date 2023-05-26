@@ -1,7 +1,9 @@
 package org.movielist.controller;
 
 import org.movielist.dto.UserDTO;
+import org.movielist.dto.request.UpdatePasswordRequest;
 import org.movielist.dto.response.MlResponse;
+import org.movielist.dto.response.ResponseMessage;
 import org.movielist.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -62,8 +65,13 @@ public class UserController {
 
     @PatchMapping("/auth")
     @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
-    public ResponseEntity<MlResponse>
-
+    public ResponseEntity<MlResponse> updatePassword(@Valid @RequestBody UpdatePasswordRequest updatePasswordRequest){
+        userService.updatePassword(updatePasswordRequest);
+        MlResponse response = new MlResponse();
+        response.setMessage(ResponseMessage.PASSWORD_CHANGED_RESPONSE_MESSAGE);
+        response.setStatus(true);
+        return ResponseEntity.ok(response);
+    }
 
 
 }
