@@ -3,7 +3,7 @@ package org.movielist.controller;
 import org.movielist.dto.request.LoginRequest;
 import org.movielist.dto.request.RegisterRequest;
 import org.movielist.dto.response.LoginResponse;
-import org.movielist.dto.response.MLResponse;
+import org.movielist.dto.response.MlResponse;
 import org.movielist.dto.response.ResponseMessage;
 import org.movielist.security.jwt.JwtUtils;
 import org.movielist.service.UserService;
@@ -35,9 +35,9 @@ public class UserJwtController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<MLResponse> registerUser(@Valid @RequestBody RegisterRequest registerRequest){
+    public ResponseEntity<MlResponse> registerUser(@Valid @RequestBody RegisterRequest registerRequest){
         userService.saveUser(registerRequest);
-        MLResponse mlResponse = new MLResponse();
+        MlResponse mlResponse = new MlResponse();
         mlResponse.setStatus(true);
         mlResponse.setMessage(ResponseMessage.REGISTER_RESPONSE_MESSAGE);
         return new ResponseEntity<>(mlResponse, HttpStatus.CREATED);

@@ -1,7 +1,7 @@
 package org.movielist.controller;
 
-import org.movielist.domain.User;
 import org.movielist.dto.UserDTO;
+import org.movielist.dto.response.MlResponse;
 import org.movielist.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -59,6 +59,11 @@ public class UserController {
         UserDTO userDTO = userService.getUserById(id);
         return ResponseEntity.ok(userDTO);
     }
+
+    @PatchMapping("/auth")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('CUSTOMER')")
+    public ResponseEntity<MlResponse>
+
 
 
 }

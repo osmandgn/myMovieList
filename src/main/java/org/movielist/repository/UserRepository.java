@@ -23,4 +23,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @EntityGraph(attributePaths = "roles")
     Page<User> findAll(Pageable pageable);
+
+    @EntityGraph(attributePaths = "roles")
+    Optional<User> findById(Long id);
 }
