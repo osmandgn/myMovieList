@@ -12,6 +12,8 @@ import org.movielist.mapper.UserMapper;
 import org.movielist.repository.UserRepository;
 import org.movielist.security.SecurityUtils;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -81,5 +83,16 @@ public class UserService {
                 orElseThrow(() -> new ResourceNotFoundException(ErrorMessage.PRINCIPAL_FOUND_MESSAGE));
         return getUserByEmail(email);
     }
+
+    public Page<UserDTO> getUserPage(Pageable pageable) {
+        Page<User> usersPageAble = userRepository.findAll(pageable);
+        return getUserDTOPage(usersPageAble);
+    }
+
+    private Page<UserDTO> getUserDTOPage(Page<User> userPage){
+        return userPage.map(
+                user -> userMapper.userToUserDTO(user));
+    }
+
 
 }

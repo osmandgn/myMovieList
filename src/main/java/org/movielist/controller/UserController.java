@@ -41,19 +41,19 @@ public class UserController {
         return ResponseEntity.ok(userDTO);
     }
 
-    @GetMapping
+    @GetMapping("/auth/pages")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Page<UserDTO>> getAllUsersByPage(
             @RequestParam("page") int page,
             @RequestParam("size") int size,
             @RequestParam("sort") String prop,
             @RequestParam(value="direction",
-                            required = false,
-                            defaultValue = "DESC") Sort.Direction direction){
+                    required = false,
+                    defaultValue = "DESC")Sort.Direction direction) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
         Page<UserDTO> userDTOPage = userService.getUserPage(pageable);
-        return ResponseEntity.ok(userDTOPage);
 
+        return ResponseEntity.ok(userDTOPage);
     }
 
 
